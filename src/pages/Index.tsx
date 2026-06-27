@@ -16,6 +16,8 @@ import {
   ClipboardCheck,
   CircleDollarSign,
   AlertTriangle,
+  X,
+  Handshake,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -107,12 +109,15 @@ const offerStack = [
     label: '$0 down financing — as low as ~$XX/mo',
     value: 'Included',
   },
-  { label: 'Bonus: free under-sink drinking water check', value: 'Free' },
+  {
+    label: 'Bonus: free under-sink reverse-osmosis drinking water consultation',
+    value: 'Free',
+  },
 ]
 
 const whyStoneWater = [
   { icon: ShieldCheck, title: 'Licensed & Insured', body: 'Fully licensed Texas plumbers and insured crews on every job.' },
-  { icon: MapPin, title: 'Local San Antonio Crew', body: 'We live here too — we know Edwards Aquifer water firsthand.' },
+  { icon: Handshake, title: 'Local & Owner-Operated', body: 'The big names got bought out and went corporate. We stayed independent, local, and accountable to our neighbors.' },
   { icon: Wrench, title: 'Certified Installs', body: 'Manufacturer-certified whole-home softener installations.' },
   { icon: BadgeDollarSign, title: 'Upfront Pricing', body: 'Clear quotes before we start. No surprises, no pressure.' },
   { icon: CircleDollarSign, title: 'Flexible Financing', body: '$0 down options so you can protect your home today.' },
@@ -169,6 +174,9 @@ const serviceAreas = [
   'Stone Oak',
   'Alamo Heights',
   'Boerne',
+  'Bulverde',
+  'Spring Branch',
+  'Fair Oaks Ranch',
   'Helotes',
   'Schertz',
   'New Braunfels',
@@ -180,6 +188,10 @@ const faqs = [
   {
     q: 'How much does a water softener cost in San Antonio?',
     a: 'It depends on your home size and water hardness, but with $0 down financing most homeowners protect their entire home for a low monthly payment. Your free water test gives you an exact, upfront quote — no obligation.',
+  },
+  {
+    q: 'Why are your prices lower than the door-to-door companies?',
+    a: 'We send licensed local plumbers, not commissioned salespeople who mark systems up to $5,000–$10,000+ to cover their pressure-pitch model. You get an honest, upfront quote with $0 down financing available — no “sign today” games.',
   },
   {
     q: 'How long does installation take?',
@@ -353,8 +365,23 @@ export default function Index() {
           <SectionHeading
             eyebrow="The Hidden Cost"
             title="San Antonio Has Some of the Hardest Water in America"
-            sub="At ~15–20+ grains per gallon from the Edwards Aquifer, hard water quietly destroys your home from the inside out."
+            sub="Bexar County water routinely tests at 15–20+ grains per gallon from the Edwards Aquifer limestone — nearly double the threshold for “very hard” water. It quietly destroys your home from the inside out."
           />
+          <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-3">
+            {[
+              { stat: '15–20+', label: 'grains per gallon in San Antonio' },
+              { stat: '2x', label: 'past the “very hard” water line' },
+              { stat: '~$1,500', label: 'to replace a scaled-out water heater' },
+            ].map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border border-border bg-white p-5 text-center"
+              >
+                <p className="text-3xl font-extrabold text-water">{s.stat}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {hardWaterCosts.map((c) => (
               <Card key={c.title}>
@@ -420,6 +447,72 @@ export default function Index() {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 HONEST PRICING / ANTI-OVERPAY */}
+      <section id="honest-pricing" className="py-16 sm:py-20">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Honest Pricing"
+            title="Stop Overpaying the Water Softener Salesman"
+            sub="Door-to-door and big-box companies push $5,000–$10,000+ systems with high-pressure, “sign today” tactics. We don’t play that game — just honest, upfront pricing from licensed local plumbers."
+          />
+          <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
+            <Card className="border border-border bg-muted/40">
+              <CardContent className="p-6">
+                <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                  The Salesman Way
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {[
+                    'Inflated $5,000–$10,000+ price tags',
+                    'High-pressure “today only” closing',
+                    'Commissioned reps, not plumbers',
+                    'Mystery pricing that changes on the spot',
+                    'Gone the moment the sale is done',
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-water shadow-lg">
+              <CardContent className="p-6">
+                <p className="text-sm font-bold uppercase tracking-wider text-water">
+                  The StoneWater Way
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {[
+                    'Free water test, then an honest upfront quote',
+                    'No pressure — take the price home and think',
+                    'Installed by licensed local plumbers',
+                    '$0 down financing if you want to spread it out',
+                    'Lifetime workmanship warranty — we stand behind it',
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-sm font-medium text-stone"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-water" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Button asChild size="lg" className="font-bold">
+              <a href="#booking">Get My Honest Upfront Quote</a>
+            </Button>
           </div>
         </div>
       </section>
@@ -492,6 +585,10 @@ export default function Index() {
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               The Local Crew San Antonio Trusts With Their Water
             </h2>
+            <p className="mt-4 text-lg text-white/70">
+              While the big plumbing names got bought out and went corporate, we
+              stayed local, independent, and owner-operated.
+            </p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyStoneWater.map((w) => (
