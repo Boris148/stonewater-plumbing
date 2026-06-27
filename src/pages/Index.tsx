@@ -35,9 +35,9 @@ import { Logo } from '@/components/Logo'
 import heroInstall from '@/assets/hero-install.jpg'
 import cleanWater from '@/assets/clean-water.jpg'
 
-// TODO[Jeremy]: replace with the real tracking number once provisioned.
-const PHONE_DISPLAY = '(210) XXX-XXXX'
-const PHONE_TEL = '+1210XXXXXXX'
+// TODO[Jeremy]: temporary number — swap for a dedicated SA tracking line at launch.
+const PHONE_DISPLAY = '(405) 596-9967'
+const PHONE_TEL = '+14055969967'
 
 // TODO[Jeremy]: paste the live GoHighLevel inbound webhook URL for the lead form.
 const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/REPLACE_ME'
@@ -227,7 +227,12 @@ function CtaButtons({ className = '' }: { className?: string }) {
       <Button asChild size="lg" className="font-bold">
         <a href="#booking">Claim My Free Water Test</a>
       </Button>
-      <Button asChild size="lg" variant="outline" className="font-bold">
+      <Button
+        asChild
+        size="lg"
+        variant="outline"
+        className="border-transparent bg-white font-bold text-stone hover:bg-white/90 hover:text-stone"
+      >
         <a href={`tel:${PHONE_TEL}`}>
           <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
