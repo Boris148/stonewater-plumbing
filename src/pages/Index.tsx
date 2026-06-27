@@ -32,6 +32,8 @@ import {
   AccordionContent,
 } from '@/components/ui/accordion'
 import { Logo } from '@/components/Logo'
+import heroInstall from '@/assets/hero-install.jpg'
+import cleanWater from '@/assets/clean-water.jpg'
 
 // TODO[Jeremy]: replace with the real tracking number once provisioned.
 const PHONE_DISPLAY = '(210) XXX-XXXX'
@@ -338,13 +340,12 @@ export default function Index() {
             </div>
           </div>
           <div className="relative">
-            {/* TODO[Jeremy]: replace with real hero photo (modern home / installed softener / water droplet). */}
-            <div className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-white/15 bg-white/5 backdrop-blur">
-              <div className="text-center text-white/70">
-                <Droplets className="mx-auto h-16 w-16 text-water-aqua" />
-                <p className="mt-3 text-sm">Hero image placeholder</p>
-              </div>
-            </div>
+            <img
+              src={heroInstall}
+              alt="Newly installed whole-home water softener system in a clean San Antonio garage"
+              className="aspect-[4/3] w-full rounded-2xl border border-white/15 object-cover shadow-2xl"
+              loading="eager"
+            />
             <div className="absolute -bottom-5 -left-5 hidden rounded-xl bg-white p-4 shadow-lg sm:block">
               <div className="flex items-center gap-1 text-trust">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -411,24 +412,30 @@ export default function Index() {
             title="How a Water Softener Fixes It"
             sub="A whole-home softener removes the hard minerals before they ever reach your pipes, appliances, or shower."
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-center">
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                { n: '1', t: 'Capture', b: 'Hard minerals enter the softener tank.' },
-                { n: '2', t: 'Exchange', b: 'Minerals are swapped out for soft water.' },
-                { n: '3', t: 'Enjoy', b: 'Clean, soft water flows to every tap.' },
-              ].map((s) => (
-                <Card key={s.n}>
-                  <CardContent className="p-5">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-water font-bold text-white">
-                      {s.n}
-                    </span>
-                    <h3 className="mt-3 font-bold text-stone">{s.t}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{s.b}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {[
+              { n: '1', t: 'Capture', b: 'Hard minerals enter the softener tank.' },
+              { n: '2', t: 'Exchange', b: 'Minerals are swapped out for soft water.' },
+              { n: '3', t: 'Enjoy', b: 'Clean, soft water flows to every tap.' },
+            ].map((s) => (
+              <Card key={s.n}>
+                <CardContent className="p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-water font-bold text-white">
+                    {s.n}
+                  </span>
+                  <h3 className="mt-3 font-bold text-stone">{s.t}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.b}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-center">
+            <img
+              src={cleanWater}
+              alt="Crystal-clear soft water poured into a glass in a bright modern kitchen"
+              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
+              loading="lazy"
+            />
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold text-stone">
