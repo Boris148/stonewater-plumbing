@@ -36,8 +36,8 @@ import heroInstall from '@/assets/hero-install.jpg'
 import cleanWater from '@/assets/clean-water.jpg'
 
 // TODO[Jeremy]: temporary number — swap for a dedicated SA tracking line at launch.
-const PHONE_DISPLAY = '(405) 596-9967'
-const PHONE_TEL = '+14055969967'
+const PHONE_DISPLAY = '(210) 772-2384'
+const PHONE_TEL = '+12107722384'
 
 // TODO[Jeremy]: paste the live GoHighLevel inbound webhook URL for the lead form.
 const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/REPLACE_ME'
